@@ -86,7 +86,7 @@ body.scrolled .rstc-logo {width:150px}
 .mega-intro p {max-width:330px;font-size:16px;margin-top:8px}
 .learn {display:inline-block;font-weight:600;border-bottom:2px solid #fff;margin:8px 0 22px}
 .mega figure {margin:0;max-width:190px}
-.mega figure img {width:100%;aspect-ratio:3/4;object-fit:cover;border:3px solid #ffffff2e}
+.mega figure img {width:100%;aspect-ratio:4/3;object-fit:cover;border:3px solid #ffffff2e}
 .mega figcaption {margin-top:8px;font-size:15px}
 .mega-main a {display:block;padding:14px 0;border-bottom:1px solid #ffffff80;font-weight:600;font-size:17px}
 .mega-main a:first-child {padding-top:2px}
@@ -1207,10 +1207,19 @@ body[data-layout="pentagon"] .side a[aria-current] {background:#e2f0f3}
 .stage-copy :is(.micro,.stage-year,.stage-stat strong) {color:var(--teal-d)}
 .stage-copy :is(h2,p) {color:inherit}
 .stage-copy .stage-year {font-variant-numeric:tabular-nums}
-.stage-copy .stage-stat {border-color:#a6c3cd}
-.stage-copy .stage-stat strong {flex:none}
-.stage-stories {display:grid}
-.stage-story {grid-area:1 / 1;visibility:hidden}
+.stage-copy .stage-stat {
+ display:grid;
+ grid-template-columns:clamp(74px,7.4vw,100px) minmax(0,1fr);
+ border-color:#a6c3cd;
+}
+.stage-copy .stage-stat strong {font-variant-numeric:tabular-nums}
+.stage-stories {display:grid;grid-template-rows:repeat(3,auto)}
+.stage-story {
+ display:grid;
+ grid-template-rows:subgrid;
+ grid-area:1 / 1 / 4 / 2;
+ visibility:hidden;
+}
 .stage-story[aria-hidden="false"] {
  visibility:visible;
  animation:stage-story-fade .32s ease-out both;

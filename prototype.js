@@ -573,6 +573,9 @@ if(page==="milestones"&&theme==="b"){
  const last=milestones.length-1;
  let step=Math.min(last,Math.max(0,parseInt(params.get("step"),10)||0));
  let timer=null;
+ let startTimer=null;
+ let autoPending=!params.has("step")&&!motionPreference.matches;
+ let stageVisible=!("IntersectionObserver" in window);
 
  function paint(index){
   step=index;
@@ -599,34 +602,65 @@ if(page==="milestones"&&theme==="b"){
  }
 
  function stop(){
+  clearTimeout(startTimer);
   clearInterval(timer);
+  startTimer=null;
   timer=null;
   setPlaying(false);
  }
 
+ function advance(){
+  paint(step+1);
+  if(step===last)stop();
+ }
+
+ function play(){
+  setPlaying(true);
+  timer=setInterval(advance,3600);
+ }
+
+ function syncAutoplay(){
+  if(document.hidden||!stageVisible||motionPreference.matches){
+   stop();
+   return;
+  }
+  if(!autoPending||startTimer!==null)return;
+  startTimer=setTimeout(()=>{
+   startTimer=null;
+   autoPending=false;
+   play();
+   advance();
+  },1000);
+ }
+
  function select(index){
+  autoPending=false;
   stop();
   paint(index);
  }
 
  playBtn.addEventListener("click",()=>{
-  if(timer!==null){stop();return}
+  autoPending=false;
+  const wasPlaying=timer!==null;
+  stop();
+  if(wasPlaying)return;
   if(step===last)paint(0);
-  setPlaying(true);
-  timer=setInterval(()=>{
-   paint(step+1);
-   if(step===last)stop();
-  },3600);
+  play();
  });
  prev.addEventListener("click",()=>select(step-1));
  next.addEventListener("click",()=>select(step+1));
- document.addEventListener("visibilitychange",()=>{if(document.hidden)stop()});
+ document.addEventListener("visibilitychange",syncAutoplay);
+ motionPreference.addEventListener("change",syncAutoplay);
  if("IntersectionObserver" in window){
-  new IntersectionObserver(([entry])=>{if(!entry.isIntersecting)stop()}).observe(stage);
+  new IntersectionObserver(([entry])=>{
+   stageVisible=entry.isIntersecting;
+   syncAutoplay();
+  }).observe(stage);
  }
 
  setPlaying(false);
  paint(step);
+ syncAutoplay();
 }
 
 
