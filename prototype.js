@@ -240,7 +240,10 @@ const tradesSection=()=>`
 const home = () => `
  <section class="hero">
   <div class="hero-visual">
-   <img src="assets/${theme==="a"?"hero-bridge-survey.webp":"hero-option-a.jpg"}" alt="">
+   ${theme==="a"?'<img src="assets/hero-bridge-survey.webp" alt="">':`<div class="hero-artwork" id="heroArtwork">
+    <img class="illustration-fallback" src="assets/construction-scene-1.svg" width="3415" height="2500" alt="">
+    <div class="illustration-player" aria-hidden="true"></div>
+   </div>`}
   </div>
 
   <div class="wrap hero-in">
@@ -248,14 +251,14 @@ const home = () => `
     <div class="scheme-eyebrow">Registered Specialist Trade Contractors Scheme</div>
     <h1>Raising the standard of specialist trades</h1>
     <p>Search the public registers, or find out how to register your company under the Scheme.</p>
-    <a class="hero-scroll" href="#about-the-scheme">Explore the Scheme ${i("chev")}</a>
+    ${theme==="a"?'<a class="hero-scroll" href="#about-the-scheme">Explore the Scheme '+i("chev")+'</a>':""}
    </div>
   </div>
  </section>
- <section class="wrap finder-wrap" aria-labelledby="finder-title"><i class="deco id-triangle" aria-hidden="true"></i>
+ <section class="wrap finder-wrap" ${theme==="a"?'aria-labelledby="finder-title"':'aria-label="Find a registered contractor"'}><i class="deco id-triangle" aria-hidden="true"></i>
   <form class="finder" action="index.html">
    <input type="hidden" name="view" value="register"><input type="hidden" name="theme" value="${theme}">
-   <div class="finder-head"><h2 id="finder-title">Find a registered contractor</h2></div>
+   ${theme==="a"?'<div class="finder-head"><h2 id="finder-title">Find a registered contractor</h2></div>':""}
    <label>Company or registration no.<input name="q" placeholder="e.g. DEMO–001"></label>
    <label>Register<select name="register"><option value="">Specialist Trade Contractors</option><option value="rs">Sub-contractors</option></select></label>
    <label>Designated trade<select name="trade"><option value="">All trades</option><option>Structural steelwork</option><option>Truss-out scaffolding</option><option>Site lifting operations</option></select></label>
@@ -279,12 +282,14 @@ const home = () => `
      <div class="overview-stat"><strong>6</strong><span>Core elements for registration</span></div>
     </div>
    </div>
-   <div class="collage" aria-hidden="true">
+   ${theme==="b"?
+    '<div class="overview-graphics" aria-hidden="true"><img src="assets/about-harbour.webp" alt="" loading="lazy"><div class="scheme-graphic"></div></div>':
+    `<div class="collage" aria-hidden="true">
     <i class="pent-back pent-back-solid"></i><i class="pent-back pent-back-outline pent-back-left"></i><i class="pent-back pent-back-outline pent-back-bottom"></i>
     <div class="pent-photo p1"><img src="assets/about-harbour.webp" alt=""></div>
     <div class="pent-photo p2"><img src="assets/about-workers.jpg" alt=""></div>
     <div class="pent-photo p3"><img src="assets/about-cic-sign.jpg" alt=""></div>
-   </div>
+   </div>`}
   </div>
  </section>
  ${tradesSection()}
@@ -322,21 +327,20 @@ const aboutItems=()=>[["Chairperson’s Message",source+"about.aspx"],["Mileston
 const stageSvg=()=>{
  const yrs=vtx(212).map((p,k)=>'<text class="vlabel vl'+k+'" x="'+f1(p[0])+'" y="'+f1(p[1]+(k===0?-6:k===1||k===4?6:24))+'" text-anchor="'+(k===1?"start":k===4?"end":"middle")+'">'+milestones[k].y+'</text>').join("");
  return '<svg class="stage-svg" viewBox="-238 -232 476 464" aria-hidden="true">'
- +[60,110,205].map(R=>'<polygon points="'+polyPts(R)+'" fill="none" stroke="#7fb3ac" stroke-opacity=".45"/>').join("")
- +vtx(205).map(p=>'<path d="M0 0L'+f1(p[0])+' '+f1(p[1])+'" stroke="#7fb3ac" stroke-opacity=".35" stroke-dasharray="3 5"/>').join("")
- +'<circle class="halo" r="150" fill="none" stroke="#00857a" stroke-width="3"/>'
- +'<g class="ghost">'+ring({R:150,w:34,knob:32,id:"sg",bow:.9,mono:"#dde9e7"})+'</g>'
+ +[60,110,205].map(R=>'<polygon points="'+polyPts(R)+'" fill="none" stroke="#799db2" stroke-opacity=".36"/>').join("")
+ +vtx(205).map(p=>'<path d="M0 0L'+f1(p[0])+' '+f1(p[1])+'" stroke="#799db2" stroke-opacity=".38" stroke-dasharray="3 5"/>').join("")
+ +'<g class="ghost">'+ring({R:150,w:34,knob:32,id:"sg",bow:.9,mono:"#b4cdd6"})+'</g>'
  +ring({R:150,w:34,knob:32,id:"st",bow:.9})+yrs
  +'<text class="c-year" x="0" y="14" text-anchor="middle"></text><text class="c-sub" x="0" y="42" text-anchor="middle">RSTCS</text></svg>';
 };
 const milestone=()=>band("About the Scheme / Milestones","Milestones","Since 2003, trade registration has grown step by step into today’s Scheme. Each step completes another side of the RSTCS pentagon.")
  +'<div class="wrap layout"><div class="content-card">'
- +'<div class="stage" id="stage" aria-live="polite"><div class="stage-copy"><div class="micro" id="stepNo"></div><div class="stage-year" id="stYear"></div><h2 id="stTitle"></h2><p id="stDesc"></p><div class="stage-stat"><strong id="stNum"></strong><span id="stUnit"></span></div>'
+ +'<div class="stage" id="stage"><div class="stage-copy"><div class="micro" id="stepNo"></div><div class="stage-year" id="stYear"></div><div class="stage-stories">'
+ +milestones.map(m=>'<section class="stage-story" aria-hidden="true"><h2>'+m.t+'</h2><p>'+m.d+'</p><div class="stage-stat"><strong>'+m.n+'</strong><span>'+m.u+'</span></div></section>').join("")
+ +'</div><span class="visually-hidden" id="stageStatus" aria-live="polite"></span>'
  +'<div class="stage-ctrl"><button type="button" class="round" id="prev" aria-label="Previous milestone">'+i("left")+'</button><button type="button" class="round" id="next" aria-label="Next milestone">'+i("arrow")+'</button><button type="button" class="link-btn light" id="play"></button></div></div>'
  +'<div class="stage-visual">'+stageSvg()+'</div></div>'
- +'<ol class="track" aria-label="Milestone years">'+milestones.map((m,n)=>'<li><button type="button" data-year="'+n+'" aria-pressed="false"><span class="node" style="--c:'+(n<5?P[n]:"var(--teal)")+'"></span><b>'+m.y+'</b><span>'+m.t+'</span></button></li>').join("")+'</ol>'
- +'<p class="notes">Selected highlights. The animation is illustrative; the full chronology is on the '+link("current RSTCS website",source+"about.aspx#milestone")+'.</p>'
- +'<div class="history"><h3>Chronology</h3><ol class="chrono">'+milestones.map((m,n)=>'<li data-chrono="'+n+'" style="--c:'+(n<5?P[n]:"var(--teal)")+'"><span class="node"></span><b>'+m.y+'</b><div><h4>'+m.t+'</h4><p>'+m.d+'</p></div></li>').join("")+'</ol></div></div>'
+ +'<div class="history"><h3>Chronology</h3><ol class="chrono">'+milestones.map((m,n)=>'<li data-chrono="'+n+'"><span class="node" style="--c:'+P[n%P.length]+'"></span><b>'+m.y+'</b><div><h4>'+m.t+'</h4><p>'+m.d+'</p></div></li>').join("")+'</ol></div></div>'
  +rail("About the Scheme",aboutItems())+'</div>';
 
 /* REGISTER -------------------------------------------------------- */
@@ -414,7 +418,7 @@ const news = () => {
 };
 const styles=()=>band("Design directions","Two milestone options","Same CIC-family site for both options; they differ in how the Milestones page is told and animated.")+'<div class="wrap styles-grid">'+[
  ["a","A / Building milestones","A tower rises on site, one storey per designated trade","#00857a","#0a4f60","#eef3f2","#ffffff"],
- ["b","B / Pentagon milestones","The Scheme logo assembles one side per milestone","#00857a","#0a4f60","#eef3f2","#ffffff"]
+ ["b","B / Pentagon milestones","The Scheme mark assembles one side per milestone","#0d2538","#a8e9d2","#f3f5f6","#ffffff"]
  ].map(([key,name,copy,...colors])=>'<article class="stylecard">'+(key==="a"?'<img src="assets/construction-site.svg" alt="" style="object-fit:contain;background:#fff">':'<img src="assets/hero-skyline.jpg" alt="">')+'<h2>'+name+'</h2><p>'+copy+'</p><div class="swatches">'+colors.map(hex=>'<span class="swatch"><i style="background:'+hex+'"></i>'+hex+'</span>').join("")+'</div><div class="swatches">'+P.map(hex=>'<span class="swatch"><i style="background:'+hex+'"></i>'+hex+'</span>').join("")+'</div><p><strong>Typography:</strong> Fira Sans, as used on CIC’s English site. <strong>Scheme layer:</strong> the five RSTCS colours and pentagon geometry, used for backgrounds, markers and the milestone animation.</p><p class="tile-row">'+mark(28,"sw"+key)+' '+badge("excellent",true)+' '+badge("robot",true)+' '+badge("substandard",true)+'</p>'+cta("Open milestones",url("milestones",key))+'</article>').join("")+'</div>';
 
 
@@ -464,6 +468,59 @@ if(page==="milestones"&&theme==="a")document.body.dataset.pin="1";
 const syncHead=()=>document.body.classList.toggle("scrolled",scrollY>24||document.body.dataset.pin==="1");addEventListener("scroll",syncHead,{passive:true});
 document.getElementById("app").innerHTML=header()+'<main id="main" tabindex="-1">'+templates[page]()+'</main>'+footer;syncHead();
 
+/* ---------- Option B homepage illustration sequence ---------- */
+if(theme==="b"&&page==="home"&&!motionPreference.matches){
+ const artwork=document.getElementById("heroArtwork");
+ const player=artwork.querySelector(".illustration-player");
+
+ async function loadScene(number){
+  const src="assets/construction-scene-"+number+".svg";
+  const image=new Image();
+  image.src=src;
+  image.alt="";
+  await image.decode();
+  const frame=document.createElement("div");
+  frame.className="illustration-frame";
+  frame.append(image);
+  return frame;
+ }
+
+ Promise.all([1,2,3,4].map(loadScene)).then(scenes=>{
+  let current=0;
+  let visible=true;
+
+  function updatePlayback(){
+   artwork.dataset.paused=String(!visible||document.hidden||motionPreference.matches);
+  }
+
+  scenes.forEach(frame=>frame.addEventListener("animationend",event=>{
+   if(event.target!==frame)return;
+   if(event.animationName==="illustration-fade-out"){
+    frame.remove();
+    delete frame.dataset.outgoing;
+    return;
+   }
+   if(event.animationName!=="illustration-fade-in")return;
+   frame.dataset.outgoing="";
+   delete frame.dataset.first;
+   current=(current+1)%scenes.length;
+   player.append(scenes[current]);
+  }));
+  document.addEventListener("visibilitychange",updatePlayback);
+  motionPreference.addEventListener("change",updatePlayback);
+  if("IntersectionObserver" in window){
+   new IntersectionObserver(([entry])=>{
+    visible=entry.isIntersecting;
+    updatePlayback();
+   },{threshold:.15}).observe(artwork);
+  }
+  updatePlayback();
+  scenes[0].dataset.first="";
+  player.append(scenes[0]);
+  artwork.dataset.ready="true";
+ }).catch(()=>{}); // The first illustration remains visible when the animation cannot load.
+}
+
 /* ---------- mega menu ---------- */
 const panel=document.getElementById("navPanel"), nav=document.getElementById("nav"), hamb=document.getElementById("hamb");
 let currentMenu="", opener=null;
@@ -503,43 +560,73 @@ if(railEl){railEl.open=!compact.matches;compact.addEventListener("change",()=>ra
 
 /* ---------- milestones: the pentagon assembles one side per milestone ---------- */
 if(page==="milestones"&&theme==="b"){
- const stage=document.getElementById("stage"), svg=stage.querySelector(".stage-svg"), playBtn=document.getElementById("play");
- let step=Math.min(5,Math.max(0,Number(params.get("step"))||0)), timer=null;
- const setPlay=on=>{playBtn.innerHTML=on?i("pause")+" Pause":i("play")+" Play the story";playBtn.setAttribute("aria-pressed",String(on))};
- function countUp(el,val){
-  const m=val.match(/^(\+?)(\d+)(.*)$/);
-  if(!m||reduceMotion){el.textContent=val;return}
-  const end=Number(m[2]),t0=performance.now();
-  const tick=t=>{const p=Math.min(1,(t-t0)/900);el.textContent=m[1]+Math.round(end*(1-Math.pow(1-p,3)))+m[3];if(p<1)requestAnimationFrame(tick)};
-  requestAnimationFrame(tick);
+ const stage=document.getElementById("stage");
+ const svg=stage.querySelector(".stage-svg");
+ const stories=stage.querySelectorAll(".stage-story");
+ const segments=svg.querySelectorAll(":scope > .ring .seg");
+ const knots=svg.querySelectorAll(":scope > .ring .knot");
+ const labels=svg.querySelectorAll(".vlabel");
+ const chronology=document.querySelectorAll("[data-chrono]");
+ const prev=document.getElementById("prev");
+ const next=document.getElementById("next");
+ const playBtn=document.getElementById("play");
+ const last=milestones.length-1;
+ let step=Math.min(last,Math.max(0,parseInt(params.get("step"),10)||0));
+ let timer=null;
+
+ function paint(index){
+  step=index;
+  const milestone=milestones[step];
+  document.getElementById("stepNo").textContent="Milestone "+(step+1)+" of "+milestones.length;
+  document.getElementById("stYear").textContent=milestone.y;
+  document.getElementById("stageStatus").textContent=milestone.y+" · "+milestone.t;
+  svg.querySelector(".c-year").textContent=milestone.y;
+  stories.forEach((story,k)=>story.setAttribute("aria-hidden",String(k!==step)));
+  segments.forEach((segment,k)=>segment.classList.toggle("on",k<step));
+  knots.forEach((knot,k)=>knot.classList.toggle("on",k<=step));
+  labels.forEach((label,k)=>{
+   label.classList.toggle("on",k<=step);
+   label.classList.toggle("now",k===step);
+  });
+  chronology.forEach((entry,k)=>entry.classList.toggle("now",k===step));
+  prev.disabled=step===0;
+  next.disabled=step===last;
  }
- function paint(n){
-  step=n;const m=milestones[n];
-  document.getElementById("stepNo").textContent="Milestone "+(n+1)+" of "+milestones.length;
-  document.getElementById("stYear").textContent=m.y;
-  document.getElementById("stTitle").textContent=m.t;
-  document.getElementById("stDesc").textContent=m.d;
-  document.getElementById("stUnit").textContent=m.u;
-  countUp(document.getElementById("stNum"),m.n);
-  svg.querySelector(".c-year").textContent=m.y;
-  svg.querySelectorAll(":scope>g.ring .seg").forEach((s,k)=>{s.classList.remove("drawing");s.classList.toggle("on",k<n-1);if(k===n-1){void s.getBoundingClientRect();s.classList.add("drawing")}});
-  svg.querySelectorAll(":scope>g.ring .knot").forEach((s,k)=>{const was=s.classList.contains("on");s.classList.toggle("on",k<=n);s.classList.toggle("arrive",k===n&&n>0&&n<5&&!was);s.classList.toggle("now",k===n&&n<5)});
-  svg.querySelectorAll(".vlabel").forEach((s,k)=>{s.classList.toggle("on",k<=n);s.classList.toggle("now",k===n&&n<5)});
-  stage.classList.toggle("complete",n===5);
-  if(n===5){const h=svg.querySelector(".halo");h.classList.remove("pulse");void h.getBoundingClientRect();h.classList.add("pulse")}
-  document.querySelectorAll("[data-year]").forEach(x=>{const k=Number(x.dataset.year);x.setAttribute("aria-pressed",String(k===n));x.parentElement.classList.toggle("done",k<=n)});
-  document.querySelector(".track").style.setProperty("--progress",(n/5*100)+"%");
-  document.querySelectorAll("[data-chrono]").forEach(x=>x.classList.toggle("now",Number(x.dataset.chrono)===n));
-  document.getElementById("prev").disabled=n===0;document.getElementById("next").disabled=n===5;
+
+ function setPlaying(playing){
+  playBtn.innerHTML=playing?i("pause")+" Pause":i("play")+" Play the story";
+  playBtn.setAttribute("aria-pressed",String(playing));
  }
- function stop(){clearInterval(timer);timer=null;setPlay(false)}
- function play(){if(step===5)paint(0);setPlay(true);timer=setInterval(()=>{if(step<5)paint(step+1);if(step===5)stop()},2600)}
- playBtn.addEventListener("click",()=>timer?stop():play());
- document.getElementById("prev").addEventListener("click",()=>{stop();paint(Math.max(0,step-1))});
- document.getElementById("next").addEventListener("click",()=>{stop();paint(Math.min(5,step+1))});
- document.querySelectorAll("[data-year]").forEach(el=>el.addEventListener("click",()=>{stop();paint(Number(el.dataset.year))}));
- setPlay(false);
- if(!params.has("step")&&!reduceMotion){paint(0);play()}else paint(params.has("step")?step:5);
+
+ function stop(){
+  clearInterval(timer);
+  timer=null;
+  setPlaying(false);
+ }
+
+ function select(index){
+  stop();
+  paint(index);
+ }
+
+ playBtn.addEventListener("click",()=>{
+  if(timer!==null){stop();return}
+  if(step===last)paint(0);
+  setPlaying(true);
+  timer=setInterval(()=>{
+   paint(step+1);
+   if(step===last)stop();
+  },3600);
+ });
+ prev.addEventListener("click",()=>select(step-1));
+ next.addEventListener("click",()=>select(step+1));
+ document.addEventListener("visibilitychange",()=>{if(document.hidden)stop()});
+ if("IntersectionObserver" in window){
+  new IntersectionObserver(([entry])=>{if(!entry.isIntersecting)stop()}).observe(stage);
+ }
+
+ setPlaying(false);
+ paint(step);
 }
 
 
@@ -856,7 +943,7 @@ function loadConstructionArtwork(){
 }
 
 /* Reveal homepage content as each group enters the viewport. */
-if(page==="home"&&"IntersectionObserver" in window){
+if(page==="home"&&theme==="a"&&"IntersectionObserver" in window){
  const content=document.getElementById("app");
  const newsFeed=document.getElementById("feed");
  const groups=[

@@ -10,8 +10,8 @@
     ["register", "Register of Specialist Trade Contractors"]
   ];
   const options = [
-    ["a", "Building milestones", "hero-bridge-survey.webp"],
-    ["b", "Pentagon milestones", "hero-option-a.jpg"]
+    ["a", "Building milestones", "preview-home-a.webp"],
+    ["b", "Pentagon milestones", "preview-home-b.webp"]
   ];
 
   function openPreview() {

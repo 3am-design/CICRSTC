@@ -7,7 +7,7 @@
   padding:24px;
 }
 .preview-lock form {display:grid;gap:14px;width:min(100%,280px)}
-.preview-lock img {width:112px;margin:0 auto 24px}
+.preview-lock img {width:136px;margin:0 auto 24px}
 .preview-lock input,.preview-lock button {width:100%;min-height:46px;padding:10px 14px}
 .preview-lock input {background:#fff;border:1px solid #aebfbc}
 .preview-lock button {background:var(--teal);color:white;border:0}
