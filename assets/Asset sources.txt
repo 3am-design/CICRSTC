@@ -1,0 +1,46 @@
+RSTCS tender mock-up assets
+
+CIC identity and visual references
+https://www.cic.hk/en
+Colour and white CIC logos, CIC symbol, menu artwork and decorative backgrounds are from the public CIC pages.
+Page composition follows the Firmstudio CIC Industry Development mock-ups supplied with the project.
+
+RSTCS Scheme identity and editorial examples
+https://rstc.cic.hk/en/index.aspx
+https://rstc.cic.hk/en/about.aspx#milestone
+https://rstc.cic.hk/en/events.aspx
+The Scheme logo and the four What’s New thumbnails come from the current RSTCS site.
+
+Fira Sans
+Static Latin webfonts from Google Fonts, as used by CIC. See Fira Sans OFL.txt.
+
+Generated concept visuals
+Both hero images were generated with the built-in ImageGen tool. Use the final approved imagery for publication.
+
+Direction A · site-team.jpg
+Create a premium documentary construction photograph for an internal Hong Kong construction industry website redesign mockup. Landscape 3:2 composition. Two Hong Kong Chinese construction site professionals, one woman site engineer and one man supervisor, both wearing correctly positioned white hard hats and high-visibility lime vests over navy workwear, standing at a safe designated balcony behind guard rails studying a folded blueprint at a clean Hong Kong building site. Both subjects in the central to right area, with layered concrete structure, tower crane and distant Hong Kong residential towers visible. Mid-distance, relaxed concentrated posture, natural overcast morning daylight, subtle teal cool tones, editorial architectural photography, realistic hands and PPE, spare industrial details. No words, logos, badges, watermark, graphic overlays or text. Fictional illustrative scene, not an actual project.
+
+Direction B · blueprint.jpg
+Wide 3:2 hero art for the proposed website of a Hong Kong construction industry specialist contractor registration scheme. Commissioned architectural editorial key visual, polished and precise, as seen in a sophisticated public-sector design proposal. An axonometric architectural model of a Hong Kong urban construction site floats across the RIGHT 60 percent of the canvas, consisting of six interlocking modular structural bays: steel-frame tower with stacked translucent floor slabs, building crane, a scaffolding bay, raised building core and a site grid, as one crafted coherent architectural illustration. Use clean strokes and technical blueprint detail, crisp CAD lines, translucent pale cyan materials, a few restrained leaf-green construction components and a single warm safety yellow accent only. Broad seamless deep petrol teal/navy gradient backdrop with teal atmospheric light centred just behind the model. On the LEFT 40 percent keep the background very dark, quiet and free of detail for white HTML headlines to be overlaid separately. Keep all key model elements away from the top and bottom 12 percent for responsive cropping. Premium institutional architectural design, precise technical forms, no sci-fi holograms, no glowing text, no letters, no numbers, no logos, no watermarks, no web UI or boxes, no people. Include no type of any kind.
+
+Draft 02 · R3 additions (Magnific, generated 16 Nov 2026)
+hero-skyline.jpg, trade-formwork.jpg, trade-rebar.jpg
+Prompt: Premium wide website hero photograph for a Hong Kong construction industry registration scheme for specialist trade contractors. A skilled Hong Kong Chinese specialist tradesperson in a white hard hat, high-visibility lime vest, navy workwear and a full-body safety harness clipped to a lifeline, working on an upper floor of a high-rise under construction, Hong Kong skyline and harbour behind in golden-hour light with teal shadows; subject in the right third, open space on the left for headline text. No text, logos or watermarks. Fictional illustrative scene.
+
+rstc-journey.png
+Existing RSTCS milestone illustration, from https://rstc.cic.hk/images/backgrounds/about-upper4.png (Option B milestones, animated in the prototype).
+
+construction-site.svg
+Isometric construction site illustration from Magnific (formerly Freepik), supplied by Firmstudio ("construction_12_06_2023"). Option B milestones: the building is cut into floor bands and stacked in the browser to rise per milestone; facade, roof sign and trees are drawn in code.
+
+footer/
+CIC footer award badges and Download App icon, from https://www.cic.hk/en (footer), so the prototype footer matches cic.hk.
+
+hero-option-a.jpg
+Option A homepage banner, supplied by Firmstudio (16 Nov 2026).
+
+deco/
+Background shapes (isometric cube outlines, planes, triangle, bracket) drawn for the prototype in the Industry Development style; small single-colour accents use the RSTCS logo yellow and orange.
+
+id/
+Background artwork extracted from the Firmstudio CIC Industry Development mock-ups (ref/01A.svg): hexagon line patterns, slanted band, green triangle, teal sliver, green hexagon ring, teal hexagon outline, soft CIC mark.

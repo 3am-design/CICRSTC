@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="92 1615 2364 2356"><defs>
+    <linearGradient id="linear-gradient" x1="0.301" y1="0.815" x2="1.493" y2="-0.195" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#8fc8c4" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.058" y1="0.556" x2="0.566" y2="1.037" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#085569" />
+      <stop offset="1" stop-color="#00857a" stop-opacity="0" />
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1315" data-name="Rectangle 1315" width="2283.97" height="1242.488" transform="matrix(0.985, 0.174, -0.174, 0.985, -196.392, -484.324)" />
+    </clipPath>
+    
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_1317" data-name="Rectangle 1317" width="1920" height="750" transform="translate(0 1540)" fill="#fff" />
+    </clipPath>
+    <linearGradient id="linear-gradient-3" x1="0.474" y1="0.045" x2="0.588" y2="0.246" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff" />
+      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+    </linearGradient>
+    <clipPath id="clip-path-3">
+      <path id="Subtraction_10" data-name="Subtraction 10" d="M0,0H1980.109V890.482H0Z" transform="translate(0 0)" fill="#d3e8e6" />
+    </clipPath>
+    <linearGradient id="linear-gradient-4" x1="0.5" y1="1.179" x2="0.5" y2="0.207" gradientUnits="objectBoundingBox">
+      <stop offset="0" />
+      <stop offset="1" stop-opacity="0" />
+    </linearGradient>
+    
+    
+    
+    
+    
+    
+    
+    <filter id="_3d-rendering-biorobots-concept" x="-15.375" y="2582.408" width="839.75" height="662.539" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha" />
+      <feGaussianBlur stdDeviation="49.5" result="blur" />
+      <feFlood flood-color="#006d71" flood-opacity="0.192" />
+      <feComposite operator="in" in2="blur" />
+      <feComposite in="SourceGraphic" />
+    </filter>
+    
+    <filter id="group-young-people-vr-glasses-doing-experiments-robotics-laboratory-robot-table" x="1481.5" y="2551.32" width="618.847" height="500.857" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha" />
+      <feGaussianBlur stdDeviation="49.5" result="blur-2" />
+      <feFlood flood-color="#006d71" flood-opacity="0.192" />
+      <feComposite operator="in" in2="blur-2" />
+      <feComposite in="SourceGraphic" />
+    </filter>
+    
+    <filter id="smart-microchip-background-motherboard-closeup-technology-remix" x="613.965" y="2615.031" width="522.535" height="511.941" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha" />
+      <feGaussianBlur stdDeviation="49.5" result="blur-3" />
+      <feFlood flood-color="#006d71" flood-opacity="0.192" />
+      <feComposite operator="in" in2="blur-3" />
+      <feComposite in="SourceGraphic" />
+    </filter>
+    <clipPath id="clip-path-4">
+      <rect id="Rectangle_1302" data-name="Rectangle 1302" width="109.247" height="126.147" fill="none" />
+    </clipPath>
+    
+    <filter id="portrait-asian-woman-standing-street-using-tablet-smiling-with-carefree-face-expression-outdoo" x="1018.842" y="2324.438" width="654.198" height="563.318" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha" />
+      <feGaussianBlur stdDeviation="49.5" result="blur-4" />
+      <feFlood flood-color="#006d71" flood-opacity="0.192" />
+      <feComposite operator="in" in2="blur-4" />
+      <feComposite in="SourceGraphic" />
+    </filter>
+    
+    
+    <clipPath id="clip-path-5">
+      <rect id="Rectangle_1304" data-name="Rectangle 1304" width="196.707" height="54.862" fill="#00857a" />
+    </clipPath>
+    
+    <clipPath id="clip-path-6">
+      <rect id="Rectangle_932" data-name="Rectangle 932" width="160.302" height="71.64" fill="none" />
+    </clipPath>
+    
+    
+    <linearGradient id="linear-gradient-5" x1="1.056" y1="0.576" x2="0.314" y2="1.062" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5bc65f" />
+      <stop offset="1" stop-color="#5bc65f" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="linear-gradient-6" x1="0.785" x2="0.08" y2="1.69" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00857a" />
+      <stop offset="1" stop-color="#085569" />
+    </linearGradient>
+    <linearGradient id="linear-gradient-7" x1="0.785" x2="0.08" y2="1.69" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5bc65f" />
+      <stop offset="1" stop-color="#5bc65f" />
+    </linearGradient>
+    <clipPath id="clip-_01A">
+      <rect width="1920" height="5541" />
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_39" data-name="Mask Group 39" transform="translate(0 52)" clip-path="url(#clip-path-2)">
+      <path id="Path_2160" data-name="Path 2160" d="M1.5,1765.472V589.644L1181.525,1.732,2361.543,589.644V1765.472L1181.525,2353.384Z" transform="translate(92.979 1563.287)" fill="url(#linear-gradient-3)" />
+    </g>
+    </svg>

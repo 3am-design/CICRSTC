@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1484 3789 1116 1099">
+  <defs>
+    <linearGradient id="amber" x1="1.056" y1=".576" x2=".314" y2="1.062" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ef943c"/>
+      <stop offset=".56" stop-color="#f7c34f" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#f9dc72" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M315.587,784.821-48.5,574.616V154.2L315.587-56,679.676,154.2V574.616ZM24.306,532.581,315.587,700.752,606.87,532.581V196.237L315.587,28.066,24.306,196.237Z" transform="translate(1560.045 4354.794) rotate(-51)" fill="url(#amber)"/>
+</svg>
