@@ -3,16 +3,22 @@
 
   const passwordHash = "01d788e64b9077b5e4a4f05ab411cca1c0fe1a313685daef18f5f5397fdcf7d7";
   const sessionKey = "cicrstc-preview";
+  const sessionCookie = sessionKey + "=" + passwordHash;
+
+  function rememberPreview() {
+    sessionStorage.setItem(sessionKey, passwordHash);
+    if (location.protocol === "file:") return;
+    const path = new URL(".", location.href).pathname;
+    const secure = location.protocol === "https:" ? "; Secure" : "";
+    document.cookie = sessionCookie + "; Path=" + path + "; SameSite=Lax" + secure;
+  }
   const app = document.getElementById("app");
   const views = [
     ["home", "Homepage"],
     ["milestones", "Milestones of the RSTCS"],
     ["register", "Register of Specialist Trade Contractors"]
   ];
-  const options = [
-    ["a", "Building milestones", "preview-home-a.webp"],
-    ["b", "Pentagon milestones", "preview-home-b.webp"]
-  ];
+  const options = ["a", "b"];
 
   function openPreview() {
     if (new URLSearchParams(location.search).has("view")) {
@@ -24,12 +30,13 @@
     }
 
     app.innerHTML = `<main class="preview-index">
-      <h1>RSTCS Website Revamp</h1>
-      <div class="preview-grid">${options.map(([key, title, photo]) => {
+      <h1>CIC RSTC Website Revamp</h1>
+      <div class="preview-grid">${options.map(key => {
+        const name = "Option " + key.toUpperCase();
         const pageUrl = view => "index.html?view=" + view + "&theme=" + key;
         return `<section class="preview-option">
-          <a class="preview-cover" href="${pageUrl("home")}" aria-label="Option ${key.toUpperCase()} homepage"><img src="assets/${photo}" alt=""></a>
-          <h2><span>Option ${key.toUpperCase()}</span>${title}</h2>
+          <a class="preview-cover" href="${pageUrl("home")}" aria-label="${name} homepage"><img src="assets/preview-home-${key}.webp" alt=""></a>
+          <h2>${name}</h2>
           <ul>${views.map(([view,label]) => `<li><a href="${pageUrl(view)}">${label}<span class="preview-url"></span></a></li>`).join("")}</ul>
         </section>`;
       }).join("")}</div>
@@ -39,7 +46,10 @@
     });
   }
 
-  if (sessionStorage.getItem(sessionKey) === passwordHash) {
+  if (document.cookie.split(";").some(cookie => cookie.trim() === sessionCookie)) {
+    openPreview();
+  } else if (sessionStorage.getItem(sessionKey) === passwordHash) {
+    rememberPreview();
     openPreview();
   } else {
     app.innerHTML = `<main class="preview-lock">
@@ -59,7 +69,7 @@
       const hash = await crypto.subtle.digest("SHA-256", bytes);
       const actual = Array.from(new Uint8Array(hash), byte => byte.toString(16).padStart(2, "0")).join("");
       if (actual === passwordHash) {
-        sessionStorage.setItem(sessionKey, actual);
+        rememberPreview();
         openPreview();
         return;
       }

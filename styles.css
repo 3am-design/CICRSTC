@@ -973,6 +973,7 @@ body[data-layout="cic"] .service-panel.dark {
 /* Option B */
 body[data-theme="b"] {
  --b-navy:#0d2538;
+ --b-panel:#e2f0f3;
  --b-content-gutter:max(var(--pad),calc((100% - var(--wrap)) / 2 + var(--pad)));
  --paper:#f3f5f6;
  --teal:#1c5670;
@@ -1024,7 +1025,7 @@ body[data-theme="b"] .hero-visual {
 body[data-theme="b"] .hero-visual::after {content:none}
 body[data-theme="b"] :is(.sitehead,.navPanel) {box-shadow:none}
 body[data-theme="b"][data-page="home"] .sitehead {background:var(--construction-sky)}
-body[data-layout="pentagon"] .sitehead {background:var(--paper)}
+body[data-theme="b"]:is([data-page="milestones"],[data-page="register"]) .sitehead {background:var(--paper)}
 body[data-theme="b"].scrolled .sitehead,
 body[data-theme="b"] .sitehead:has(.navPanel:not([hidden])),
 body[data-theme="b"] .navPanel {background:#fff}
@@ -1176,7 +1177,7 @@ body[data-theme="b"] .service-panel.dark {background:var(--b-navy)}
 
 body[data-theme="b"][data-page="register"] .filters {
  padding:clamp(12px,2vw,22px);
- background:#fff;
+ background:var(--b-panel);
  border:1px solid var(--line);
 }
 body[data-theme="b"] .profile {border:1px solid var(--line);border-left:4px solid var(--teal)}
@@ -1184,10 +1185,16 @@ body[data-theme="b"] .markings {background:#edf2f5}
 body[data-theme="b"] .radar .score {fill:var(--teal);stroke:var(--teal)}
 body[data-theme="b"] .radar circle {stroke:var(--teal)}
 body[data-theme="b"] .side-group[open]>summary {background:var(--b-navy)}
+body[data-theme="b"][data-page="register"] .filters input::placeholder {color:#456777}
+body[data-theme="b"][data-page="register"] .side-group[open]>summary {
+ background:var(--b-panel);
+ color:var(--b-navy);
+ border-bottom:1px solid var(--line);
+}
 
-body[data-layout="pentagon"] #main > .titleBand {background:var(--paper);color:var(--b-navy)}
-body[data-layout="pentagon"] .titleBand h1 {color:var(--b-navy)}
-body[data-layout="pentagon"] .share {
+body[data-theme="b"]:is([data-page="milestones"],[data-page="register"]) #main > .titleBand {background:var(--paper);color:var(--b-navy)}
+body[data-theme="b"]:is([data-page="milestones"],[data-page="register"]) .titleBand h1 {color:var(--b-navy)}
+body[data-theme="b"]:is([data-page="milestones"],[data-page="register"]) .share {
  background:transparent;
  color:var(--teal-d);
  border:1px solid #779dab;
@@ -1195,13 +1202,13 @@ body[data-layout="pentagon"] .share {
 }
 body[data-layout="pentagon"] .content-card {padding:0;background:transparent}
 body[data-layout="pentagon"] .stage {
- background:#e2f0f3;
+ background:var(--b-panel);
  color:var(--b-navy);
  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
  gap:clamp(18px,2vw,32px);
 }
 body[data-layout="pentagon"] .side {background:transparent;border-top:1px solid var(--line)}
-body[data-layout="pentagon"] .side a[aria-current] {background:#e2f0f3}
+body[data-layout="pentagon"] .side a[aria-current] {background:var(--b-panel)}
 .stage-visual {min-width:0}
 .stage-svg {display:block}
 .stage-copy :is(.micro,.stage-year,.stage-stat strong) {color:var(--teal-d)}
