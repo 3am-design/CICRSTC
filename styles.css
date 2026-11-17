@@ -132,9 +132,12 @@ body.scrolled .rstc-logo {width:150px}
 .hero p {max-width:440px;color:#fff;font-size:17px}
 
 .finder-wrap {position:relative;z-index:2;margin-top:-86px}
-.finder {display:grid;grid-template-columns:1.4fr 1fr 1fr auto;align-items:end;gap:20px;background:#fff;padding:22px 30px 26px;box-shadow:0 16px 36px #0a3d3a1c;border-top:5px solid transparent;border-image:var(--spectrum) 1}
+.finder {display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) auto;align-items:end;gap:20px;background:#fff;padding:22px 30px 26px;box-shadow:0 16px 36px #0a3d3a1c;border-top:5px solid transparent;border-image:var(--spectrum) 1}
 .finder-head {grid-column:1/-1;display:flex;align-items:center;gap:10px}
 .finder h2 {font-size:20px;font-weight:600}
+.finder-actions {display:flex;gap:12px}
+.finder-actions .btn {white-space:nowrap}
+.finder .finder-register {color:var(--teal)}
 label {display:grid;gap:4px;font-weight:500;font-size:13px}
 /* form fields: one bottom line only; dropdowns get a custom chevron instead of the browser's box */
 input,select {height:46px;padding:8px 4px;background:transparent;border:0;border-bottom:1px solid var(--teal);border-radius:0;width:100%;min-width:0;font:inherit;font-size:15px;color:var(--ink);box-shadow:none}
@@ -507,6 +510,8 @@ body[data-clean=true] .review-bar {display:none}
  .rstc-logo {width:160px}
  .nav {gap:18px}
  .nav a,.nav button {font-size:17px}
+ .finder {grid-template-columns:1.4fr 1fr 1fr}
+ .finder-actions {grid-column:1/-1;justify-self:start}
 }
 @media(max-width:1120px) {
  :root {--head:84px}
@@ -515,8 +520,6 @@ body[data-clean=true] .review-bar {display:none}
  .hero-in {padding-top:24px}
  .filters {grid-template-columns:1fr 1fr 1fr}
  .filters .btn {grid-column:1/-1;justify-self:start}
- .finder {grid-template-columns:1fr 1fr 1fr}
- .finder .btn {grid-column:1/-1;justify-self:start}
 }
 @media(max-width:980px) {
  :root {--head:72px;--hh:60px}
@@ -565,7 +568,8 @@ body[data-clean=true] .review-bar {display:none}
  .hero-visual::after {background:linear-gradient(180deg,#0627364d 0%,transparent 26%,#0627365c 46%,#062736d9 100%)}
   .finder-wrap {margin-top:-80px}
  .finder {grid-template-columns:1fr;padding:18px;gap:12px}
- .finder .btn {width:100%}
+ .finder-actions {justify-self:stretch}
+ .finder-actions .btn {flex:1;min-width:0}
  .section {padding-block:38px}
  .update-tabs {gap:14px;margin-bottom:16px}
  .update-tabs button {font-size:13px}

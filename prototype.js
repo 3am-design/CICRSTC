@@ -262,7 +262,10 @@ const home = () => `
    <label>Company or registration no.<input name="q" placeholder="e.g. DEMO–001"></label>
    <label>Register<select name="register"><option value="">Specialist Trade Contractors</option><option value="rs">Sub-contractors</option></select></label>
    <label>Designated trade<select name="trade"><option value="">All trades</option><option>Structural steelwork</option><option>Truss-out scaffolding</option><option>Site lifting operations</option></select></label>
-   <button class="btn">${i("search")} Search</button>
+   <div class="finder-actions">
+    <button class="btn" type="submit">${i("search")} Search</button>
+    <a class="btn ghost finder-register" href="${url("apply")}">Register ${i("arrow")}</a>
+   </div>
   </form>
  </section>
  <section class="wrap section home-news" aria-labelledby="updates-title"><i class="deco id-lines-large id-news" aria-hidden="true"></i>
@@ -467,6 +470,14 @@ const templates={home,milestones:theme==="a"?milestoneB:milestone,register:reg,a
 if(page==="milestones"&&theme==="a")document.body.dataset.pin="1";
 const syncHead=()=>document.body.classList.toggle("scrolled",scrollY>24||document.body.dataset.pin==="1");addEventListener("scroll",syncHead,{passive:true});
 document.getElementById("app").innerHTML=header()+'<main id="main" tabindex="-1">'+templates[page]()+'</main>'+footer;syncHead();
+
+if(page==="home"){
+ const registerSelect=document.querySelector('.finder select[name="register"]');
+ const registerLink=document.querySelector('.finder-register');
+ registerSelect.addEventListener("change",()=>{
+  registerLink.href=url("apply",theme,registerSelect.value==="rs"?"&route=rs":"");
+ });
+}
 
 /* ---------- Option B homepage illustration sequence ---------- */
 if(theme==="b"&&page==="home"&&!motionPreference.matches){
